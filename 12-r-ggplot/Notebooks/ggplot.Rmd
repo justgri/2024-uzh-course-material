@@ -60,7 +60,7 @@ Now let's do a simple histogram of the prices of the diamonds
 ```{r}
 
 ggplot(data = diamonds_df) +
-  geom_histogram(aes(x = price))
+  geom_histogram(aes(x = price), fill = "blue")
 ```
 ##  Aesthetics
 ###  Aesthetic mappings
@@ -123,7 +123,7 @@ So far we have just produced a scatterplot. We can of course also create other k
 
 ```{r}
 ggplot(data = diamonds_df) +
-  geom_smooth(mapping = aes(x = carat, y = price))
+  geom_smooth(mapping = aes(x = carat, y = price), level = 0.95)
 ```
 
 Depending on the geometrical object, different aesthetics can be used. To see which aesthetics are available type `?geom_smooth`. Moreover, you can also see which additional arguments are available and which default values are set. In the following, we will change the confidence intervals and map the variable `cut` to the `color` aesthetic.
@@ -246,7 +246,8 @@ We will talk here specifically about three things that we can tweak using scale 
 
 To change the axis ticks, you have to pass the `breaks` argument with the desired breaks to the scales.
 ```{r}
-ggplot(data = diamonds_df) +
+diamonds_df %>% filter(clarity == "I1") %>% 
+ggplot() +
   geom_point(mapping = aes(x = carat, y = price, color = clarity)) +
   labs(title = "Relationship between weight and price of diamonds",
        x = "Weight in carat",

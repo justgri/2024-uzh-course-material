@@ -1,0 +1,31 @@
+\begin{table}
+\centering
+\begin{talltblr}[         %% tabularray outer open
+entry=none,label=none,
+note{}={* p \num{< 0.1}, ** p \num{< 0.05}, *** p \num{< 0.01}},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]},
+column{1}={halign=l,},
+column{2}={halign=c,},
+column{3}={halign=c,},
+column{4}={halign=c,},
+column{5}={halign=c,},
+hline{8}={1,2,3,4,5}{solid, 0.05em, black},
+}                     %% tabularray inner close
+\toprule
+& OLS & FE1 & FE2 & IV \\ \midrule %% TinyTableHeader
+Democracy\$\_\{t-1\}\$ & \num{0.692}***  & \num{0.706}*** & \num{0.379}*** & \num{0.322}*** \\
+& (\num{0.024})   & (\num{0.028})  & (\num{0.047})  & (\num{0.052})  \\
+LogGDP\$\_\{t-1\}\$    & \num{0.080}***  & \num{0.072}*** & \num{0.010}    & \num{-0.036}   \\
+& (\num{0.008})   & (\num{0.009})  & (\num{0.032})  & (\num{0.112})  \\
+Constant                    & \num{-0.475}*** &                 &                 &                 \\
+& (\num{0.060})   &                 &                 &                 \\
+Adj.R\$2\$                & \num{0.71}      & \num{0.72}     & \num{0.75}     & \num{0.74}     \\
+N                           & \num{945}       & \num{945}      & \num{945}      & \num{697}      \\
+Year FE                     &                  & X               & X               & X               \\
+Country FE                  &                  &                 & X               &                 \\
+Std errors                  & Homosk           & Heterosk-Robust & Clustered       & Clustered       \\
+\bottomrule
+\end{talltblr}
+\end{table}
